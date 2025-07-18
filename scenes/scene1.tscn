@@ -8,5 +8,6 @@
 [node name="Player" parent="." instance=ExtResource("1_t413n")]
 position = Vector2(56, 305)
 
-[node name="Ghost" parent="." instance=ExtResource("2_td60s")]
+[node name="Ghost" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_td60s")]
 position = Vector2(603, 31)
+player = NodePath("../Player")

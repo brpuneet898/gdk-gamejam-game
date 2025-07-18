@@ -1,3 +1,4 @@
+
 class_name Player extends CharacterBody2D 
 
 var move_speed : float = 100.0
@@ -14,9 +15,9 @@ func _process( delta ):
 	
 	if direction.length() > 0:
 		if abs(direction.x) > abs(direction.y):
-			sprite.frame = 2 if direction.x > 0 else 3
+			sprite.frame = 8 if direction.x > 0 else 12
 		else:
-			sprite.frame = 1 if direction.y > 0 else 0
+			sprite.frame = 4 if direction.y > 0 else 0
 	pass
 
 func _physics_process( delta ):

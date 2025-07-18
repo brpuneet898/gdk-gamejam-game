@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3q1wiyib8ekv"]
 
-[ext_resource type="Texture2D" uid="uid://1d6221joryga" path="res://assets/player/sprite/Sparrow.png" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://bjdatrdytnr44" path="res://scripts/player/player.gd" id="1_h6syq"]
+[ext_resource type="Texture2D" uid="uid://yhgisnwdh6ne" path="res://assets/player/sprite/Treasure Hunter.png" id="2_h6syq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_td60s"]
 
@@ -14,4 +14,6 @@ shape = SubResource("RectangleShape2D_td60s")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, 1)
-texture = ExtResource("1_d6veg")
+texture = ExtResource("2_h6syq")
+hframes = 2
+vframes = 2

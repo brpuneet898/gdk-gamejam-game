@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyh1rojl4hmnv"]
+[gd_scene load_steps=5 format=3 uid="uid://cyh1rojl4hmnv"]
 
 [ext_resource type="PackedScene" uid="uid://d3q1wiyib8ekv" path="res://assets/player/player.tscn" id="1_t413n"]
 [ext_resource type="PackedScene" uid="uid://b84anh055iret" path="res://assets/obstacles/ghost/ghost.tscn" id="2_td60s"]
+[ext_resource type="PackedScene" uid="uid://b8ca0jwbacu7e" path="res://assets/tilemap/ground.tscn" id="3_007yp"]
+[ext_resource type="PackedScene" uid="uid://dm5gafr8x3vqy" path="res://assets/tilemap/wall.tscn" id="4_dc6gq"]
 
 [node name="Playground" type="Node2D"]
+position = Vector2(-1, -4)
 
 [node name="Player" parent="." instance=ExtResource("1_t413n")]
-position = Vector2(56, 305)
+position = Vector2(112, 309)
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_td60s")]
-position = Vector2(603, 31)
+position = Vector2(583, 48)
 player = NodePath("../Player")
+
+[node name="Ground" parent="." instance=ExtResource("3_007yp")]
+layer_0/tile_data = PackedInt32Array(589827, 65536, 1, 589828, 65536, 1, 589829, 65536, 1, 327687, 65536, 1, 327688, 65536, 1, 393224, 65536, 1, 458760, 65536, 1, 458761, 65536, 1, 458762, 65536, 1, 262155, 65536, 1, 262156, 65536, 1, 262157, 65536, 1, 262158, 65536, 1, 196622, 65536, 1, 196623, 65536, 1, 131087, 65536, 1, 65551, 65536, 1, 65552, 65536, 1, 65553, 65536, 1, 65554, 65536, 1, 458763, 65536, 1, 393227, 65536, 1, 327691, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 458757, 65536, 1, 524293, 65536, 1, 327686, 65536, 1)
+
+[node name="Wall" parent="." instance=ExtResource("4_dc6gq")]

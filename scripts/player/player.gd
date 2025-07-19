@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 var move_speed : float = 100.0
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var player_light: PointLight2D = $PointLight2D
 
 func _ready():
 	pass
@@ -19,21 +20,26 @@ func _physics_process( delta ):
 	
 func update_animation():
 	var current_anim = ""
+	var light_offset = Vector2(0, 0)
 
 	if velocity.length() == 0:
 		current_anim = "idle_down"
+		light_offset = Vector2(-21, -35)
 	else:
-		if abs(velocity.x) > abs(velocity.y):
-			sprite.flip_h = true
+		if abs(velocity.x) > abs(velocity.y) : 
 			if velocity.x > 0 :
 				current_anim = "walk_left"
+				light_offset = Vector2(21, -35)
 			else:
-				current_anim = "walk_right" 
+				current_anim = "walk_right"
+				light_offset = Vector2(-21, -35)
 		else:
-			sprite.flip_h = false
 			if velocity.y > 0:
 				current_anim = "walk_down"
+				light_offset = Vector2(-21, -35)
 			else:
 				current_anim = "walk_up"
+				light_offset = Vector2(21, -35)
 	if anim_player.current_animation != current_anim:
 		anim_player.play(current_anim)
+	player_light.position = light_offset

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyh1rojl4hmnv"]
+[gd_scene load_steps=9 format=3 uid="uid://cyh1rojl4hmnv"]
 
 [ext_resource type="Script" uid="uid://42on2jrhxdn0" path="res://scripts/main/event_handler.gd" id="1_cg05x"]
 [ext_resource type="PackedScene" uid="uid://d3q1wiyib8ekv" path="res://assets/player/player.tscn" id="1_t413n"]
 [ext_resource type="PackedScene" uid="uid://b84anh055iret" path="res://assets/obstacles/ghost/ghost.tscn" id="2_td60s"]
 [ext_resource type="PackedScene" uid="uid://b8ca0jwbacu7e" path="res://assets/tilemap/ground.tscn" id="3_007yp"]
 [ext_resource type="PackedScene" uid="uid://dm5gafr8x3vqy" path="res://assets/tilemap/wall.tscn" id="4_dc6gq"]
+[ext_resource type="PackedScene" uid="uid://cgvb6rajaqhk5" path="res://assets/tilemap/structs.tscn" id="6_s8jmr"]
+[ext_resource type="PackedScene" uid="uid://bqiqs4q36dmdm" path="res://assets/tilemap/shadows.tscn" id="7_rayba"]
+[ext_resource type="PackedScene" uid="uid://mnlpr67ybnu7" path="res://assets/tilemap/props.tscn" id="8_suuxx"]
 
 [node name="Playground" type="Node2D"]
 position = Vector2(-1, -4)
@@ -32,3 +35,9 @@ offset_left = 58.0
 offset_top = 42.0
 offset_right = 222.0
 offset_bottom = 121.0
+
+[node name="Structs" parent="." instance=ExtResource("6_s8jmr")]
+
+[node name="Shadows" parent="." instance=ExtResource("7_rayba")]
+
+[node name="Props" parent="." instance=ExtResource("8_suuxx")]

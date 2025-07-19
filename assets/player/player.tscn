@@ -112,3 +112,9 @@ frame = 5
 libraries = {
 &"": SubResource("AnimationLibrary_tb4ck")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 0.1
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

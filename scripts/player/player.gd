@@ -1,4 +1,3 @@
-
 class_name Player extends CharacterBody2D 
 
 var move_speed : float = 100.0
@@ -16,8 +15,7 @@ func _process( delta ):
 
 func _physics_process( delta ):
 	update_animation()
-	move_and_slide()
-	
+	move_and_slide()	
 	
 func update_animation():
 	var current_anim = ""

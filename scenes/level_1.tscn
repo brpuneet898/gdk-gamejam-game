@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://da1os3c1v1ovf"]
+[gd_scene load_steps=7 format=3 uid="uid://da1os3c1v1ovf"]
 
 [ext_resource type="Script" uid="uid://42on2jrhxdn0" path="res://scripts/main/event_handler.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://b8ca0jwbacu7e" path="res://assets/tilemap/ground.tscn" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://dm5gafr8x3vqy" path="res://assets/tilemap/wall.tscn" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://d3q1wiyib8ekv" path="res://assets/player/player.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://b84anh055iret" path="res://assets/obstacles/ghost/ghost.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://mnlpr67ybnu7" path="res://assets/tilemap/props.tscn" id="6_fcfvj"]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource("1_4nkto")
@@ -20,8 +21,9 @@ layer_1/tile_data = PackedInt32Array(524304, 786432, 2, 524305, 851968, 2, 32768
 [node name="Player" parent="." instance=ExtResource("3_4nkto")]
 position = Vector2(49, 45)
 
-[node name="Ghost" parent="." instance=ExtResource("4_5xbjy")]
+[node name="Ghost" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_5xbjy")]
 position = Vector2(80, 755)
+player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -33,3 +35,7 @@ offset_left = 58.0
 offset_top = 42.0
 offset_right = 222.0
 offset_bottom = 121.0
+
+[node name="GhostIndicator" parent="." instance=ExtResource("6_fcfvj")]
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(1179652, 524288, 3, 1245188, 524288, 4, 983050, 524288, 3, 1048586, 524288, 4, 983041, 524288, 3, 1048577, 524288, 4, 786441, 524288, 3, 851977, 524288, 4, 458752, 524288, 3, 524288, 524288, 4, 327687, 524288, 3, 393223, 524288, 4, 131076, 524288, 3, 196612, 524288, 4, 589840, 524288, 3, 655376, 524288, 4, 786450, 524288, 3, 851986, 524288, 4, 1048592, 524288, 3, 1114128, 524288, 4, 1245202, 524288, 3, 1310738, 524288, 4, 983044, 524288, 0, 1048580, 524288, 1, 1179659, 524288, 0, 1245195, 524288, 1, 589834, 524288, 0, 655370, 524288, 1, 655363, 524288, 0, 720899, 524288, 1, 131080, 524288, 0, 196616, 524288, 1, 65550, 524288, 0, 131086, 524288, 1, 65556, 524288, 0, 131092, 524288, 1, 1310728, 655360, 8, 1441803, 655360, 8, 1441810, 655360, 8, 1376277, 655360, 8, 851989, 655360, 8, 720909, 655360, 8, 917510, 655360, 8, 655359, 655360, 8, 458758, 655360, 8, 524300, 655360, 8, 327695, 655360, 8, 262152, 655360, 8, 65543, 655360, 8, 1179647, 655360, 8, 851969, 655360, 8, 1310722, 655360, 8, 1114119, 524288, 6, 1507336, 524288, 6, 1572884, 524288, 6, 1179668, 524288, 6, 720904, 524288, 6, 458755, 524288, 6, 393230, 524288, 6, 65547, 524288, 6, 65538, 524288, 6, 1638401, 524288, 6, 1376260, 524288, 6, 1638404, 655360, 8, 1245185, 524288, 4)

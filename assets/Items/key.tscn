@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8g3m6kfvu65w"]
+
+[ext_resource type="Texture2D" uid="uid://r1rmpckkmd0y" path="res://assets/Items/Key.png" id="1_6v2l6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6v2l6"]
+radius = 12.0
+height = 44.0
+
+[sub_resource type="Gradient" id="Gradient_250hq"]
+offsets = PackedFloat32Array(0, 0.57)
+colors = PackedColorArray(1, 0.85098, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3svno"]
+gradient = SubResource("Gradient_250hq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="Key" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6v2l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_6v2l6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(1, 1.54688)
+texture = SubResource("GradientTexture2D_3svno")

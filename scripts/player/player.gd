@@ -4,6 +4,8 @@ var move_speed : float = 100.0
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var player_light: PointLight2D = $PointLight2D
+@onready var playground = get_tree().root.get_node("Playground")
+@onready var props_tilemap = playground.get_node("Props")
 
 func _ready():
 	pass
@@ -16,7 +18,8 @@ func _process( delta ):
 
 func _physics_process( delta ):
 	update_animation()
-	move_and_slide()	
+	move_and_slide()
+	check_for_win()
 	
 func update_animation():
 	var current_anim = ""
@@ -43,3 +46,23 @@ func update_animation():
 	if anim_player.current_animation != current_anim:
 		anim_player.play(current_anim)
 	player_light.position = light_offset
+
+func check_for_win():
+	if not playground.exit_condition:
+		return
+
+	var tile_coords = props_tilemap.local_to_map(global_position)
+
+	var tile_id = props_tilemap.get_cell_source_id(0, tile_coords)
+
+	if tile_id == -1:
+		return
+
+	var tile_data = props_tilemap.get_cell_tile_data(0, tile_coords)
+	if tile_data:
+		var count = tile_data.get_collision_polygons_count(0)
+
+		if count == 0:
+			print("YOU WIN!")
+	else:
+		print("No tile data found.")

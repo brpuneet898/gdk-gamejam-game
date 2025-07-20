@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var chase_speed := 60.0
 @export var move_interval := 1.0
 @export var activation_distance := 300.0
-@export var chase_distance := 100.0
+@export var chase_distance := 200.0
 @export var player: CharacterBody2D
 
 var original_tiles := {}

@@ -63,6 +63,6 @@ func check_for_win():
 		var count = tile_data.get_collision_polygons_count(0)
 
 		if count == 0:
-			print("YOU WIN!")
+			playground.show_game_win()
 	else:
 		print("No tile data found.")

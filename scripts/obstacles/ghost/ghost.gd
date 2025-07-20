@@ -66,7 +66,6 @@ func pick_random_direction():
 func _on_kill_detector_body_entered(body):
 	if body is Player:
 		print("Player touched ghost")
-		get_tree().paused = true
 		get_tree().root.get_node("Playground").show_game_over()
 
 func _update_tiles_visibility():

@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://c025higk1st13"]
+
+[ext_resource type="Script" uid="uid://cbsxq8chgvhah" path="res://scripts/main/screens.gd" id="1_is4k8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_is4k8"]
+font_size = 30
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_is4k8")
+
+[node name="Main Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -100.0
+offset_right = 71.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Echoes of the Lost"
+label_settings = SubResource("LabelSettings_is4k8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -41.0
+offset_right = 84.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Search for the Traces"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = 80.0
+offset_right = 24.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="Start" type="Button" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = 29.0
+offset_right = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="GameOverScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -110.0
+offset_right = 46.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!
+Try Again"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 26.0
+offset_right = 50.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Restart" type="Button" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 33.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 80.0
+offset_right = 21.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="GameWinScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameWinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -110.0
+offset_right = 46.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congratulations!
+You win!"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="GameWinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = 26.0
+offset_right = 50.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Restart" type="Button" parent="GameWinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 33.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[node name="Quit" type="Button" parent="GameWinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 80.0
+offset_right = 21.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="Main Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Main Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="GameOverScreen/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameOverScreen/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverScreen/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="GameWinScreen/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameWinScreen/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameWinScreen/Quit" to="." method="_on_quit_pressed"]

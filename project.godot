@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GDK Gamejam Game"
-run/main_scene="uid://da1os3c1v1ovf"
+run/main_scene="uid://c025higk1st13"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://scripts/main/game_state.gd"
 
 [display]
 

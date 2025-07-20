@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgtd4o6l1x7eh"]
+
+[ext_resource type="Script" uid="uid://cbsxq8chgvhah" path="res://scripts/main/screens.gd" id="1_l6cm7"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_l6cm7")
+
+[node name="Main Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Main Menu"]
+offset_left = 3.0
+offset_top = -22.0
+offset_right = 144.0
+offset_bottom = 1.0
+text = "Echoes of the Lost"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Main Menu"]
+offset_left = -7.0
+offset_top = 12.0
+offset_right = 134.0
+offset_bottom = 35.0
+text = "Search for the Traces"
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="Main Menu"]
+offset_left = 41.0
+offset_top = 109.0
+offset_right = 84.0
+offset_bottom = 140.0
+text = "Quit"
+
+[node name="Start" type="Button" parent="Main Menu"]
+offset_left = 29.0
+offset_top = 61.0
+offset_right = 94.0
+offset_bottom = 92.0
+text = "Start"

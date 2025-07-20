@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://da1os3c1v1ovf"]
+[gd_scene load_steps=12 format=3 uid="uid://da1os3c1v1ovf"]
 
 [ext_resource type="Script" uid="uid://42on2jrhxdn0" path="res://scripts/main/event_handler.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://b8ca0jwbacu7e" path="res://assets/tilemap/ground.tscn" id="1_rus8k"]
 [ext_resource type="PackedScene" uid="uid://dm5gafr8x3vqy" path="res://assets/tilemap/wall.tscn" id="2_5xbjy"]
 [ext_resource type="PackedScene" uid="uid://d3q1wiyib8ekv" path="res://assets/player/player.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://b84anh055iret" path="res://assets/obstacles/ghost/ghost.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://c025higk1st13" path="res://assets/Items/Screens.tscn" id="6_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://mnlpr67ybnu7" path="res://assets/tilemap/props.tscn" id="6_fcfvj"]
 [ext_resource type="Shader" uid="uid://co2fjqq8dsyam" path="res://shaders/level_1.gdshader" id="7_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://b8g3m6kfvu65w" path="res://assets/Items/key.tscn" id="8_15mv3"]
@@ -20,7 +21,7 @@ shader_parameter/outer_radius = 0.75
 script = ExtResource("1_4nkto")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.262614, 0.236861, 0.206822, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Ground" parent="." instance=ExtResource("1_rus8k")]
 layer_0/z_index = -3
@@ -33,22 +34,15 @@ layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(524304, 786432, 2, 524305, 851968, 2, 327689, 786432, 2, 327690, 851968, 2, 655360, 786432, 2, 655361, 851968, 2, 917504, 786432, 2, 917505, 851968, 2, 1179653, 786432, 2, 1179654, 851968, 2, 1245200, 786432, 2, 1245201, 851968, 2, 1507341, 786432, 2, 1507342, 851968, 2, 1245190, 262144, 2, 1245189, 524288, 2, 1310736, 524288, 2, 1310737, 262144, 2, 851984, 262144, 2, 851981, 524288, 2, 786445, 65536, 1, 786448, 851968, 2, 1638414, 262144, 4, 1572878, 262144, 3, 196610, 262144, 2, 131074, 262144, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_4nkto")]
-position = Vector2(139, 688)
+position = Vector2(94, 443)
 
 [node name="Ghost" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_5xbjy")]
-position = Vector2(10000, 755)
+position = Vector2(75, 769)
 player = NodePath("../Player")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GameOverScreen" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 58.0
-offset_top = 42.0
-offset_right = 222.0
-offset_bottom = 121.0
+[node name="Screens" parent="." instance=ExtResource("6_2y5yt")]
+offset = Vector2(10000, 0)
+transform = Transform2D(1, 0, 0, 1, 10000, 0)
 
 [node name="GhostIndicator" parent="." instance=ExtResource("6_fcfvj")]
 layer_0/z_index = -1
@@ -56,13 +50,21 @@ layer_0/tile_data = PackedInt32Array(1179652, 524288, 3, 1245188, 524288, 4, 983
 
 [node name="Props" parent="." instance=ExtResource("6_fcfvj")]
 layer_0/z_index = -2
-layer_0/tile_data = PackedInt32Array(1507329, 720896, 9, 1572865, 720896, 10, 1441794, 786432, 8, 1507330, 786432, 9, 1572866, 786432, 10, 1441795, 851968, 8, 1507331, 851968, 9, 1572867, 851968, 10, 983041, 524288, 65539, 1048577, 524288, 65540, 1048580, 524288, 131073, 983044, 524288, 196608, 1179647, 655360, 65544, 851969, 655360, 65544, 917510, 655360, 65544, 1310728, 655360, 65544, 1310722, 655360, 65544, 1441803, 655360, 65544, 1638404, 655360, 65544, 1441810, 655360, 65544, 1376277, 655360, 65544, 851989, 655360, 65544, 720909, 655360, 65544, 655359, 655360, 65544, 458758, 655360, 65544, 524300, 655360, 65544, 327695, 655360, 65544, 65543, 655360, 65544, 262152, 655360, 65544, 458755, 524288, 65542, 65538, 524288, 65542, 65547, 524288, 65542, 393230, 524288, 65542, 720904, 524288, 65542, 1638401, 524288, 65542, 1376260, 524288, 65542, 1114119, 524288, 65542, 1507336, 524288, 65542, 1572884, 524288, 65542, 1179668, 524288, 65542, 1245185, 524288, 65540, 1245188, 524288, 65540, 1048586, 524288, 65540, 1114128, 524288, 65540, 1310738, 524288, 65540, 851986, 524288, 65540, 851977, 524288, 65540, 655376, 524288, 65540, 524288, 524288, 65540, 393223, 524288, 65540, 196612, 524288, 65540, 458752, 524288, 65539, 327687, 524288, 65539, 131076, 524288, 65539, 589840, 524288, 65539, 786441, 524288, 65539, 983050, 524288, 65539, 786450, 524288, 65539, 1048592, 524288, 65539, 1179652, 524288, 65539, 1245202, 524288, 65539, 1245195, 524288, 131073, 720899, 524288, 131073, 655370, 524288, 131073, 196616, 524288, 131073, 131086, 524288, 131073, 131092, 524288, 131073, 131080, 524288, 196608, 65550, 524288, 196608, 65556, 524288, 196608, 589834, 524288, 196608, 655363, 524288, 196608, 1179659, 524288, 196608, 1441793, 720896, 8)
+layer_0/tile_data = PackedInt32Array(1507329, 720896, 9, 1572865, 720896, 10, 1441794, 786432, 8, 1507330, 786432, 9, 1572866, 786432, 10, 1441795, 851968, 8, 1507331, 851968, 9, 1572867, 851968, 10, 1441793, 720896, 8)
 layer_1/name = "Layer1"
 layer_1/z_index = -1
 layer_1/tile_data = PackedInt32Array(1507330, 458752, 1)
 layer_2/name = "Layer2"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(1441794, 458752, 0)
+
+[node name="Props2" parent="." instance=ExtResource("6_fcfvj")]
+layer_0/z_index = -2
+layer_0/tile_data = PackedInt32Array(983041, 524288, 65539, 1048577, 524288, 65540, 1048580, 524288, 131073, 983044, 524288, 196608, 1179647, 655360, 65544, 851969, 655360, 65544, 917510, 655360, 65544, 1310728, 655360, 65544, 1310722, 655360, 65544, 1441803, 655360, 65544, 1638404, 655360, 65544, 1441810, 655360, 65544, 1376277, 655360, 65544, 851989, 655360, 65544, 720909, 655360, 65544, 655359, 655360, 65544, 458758, 655360, 65544, 524300, 655360, 65544, 327695, 655360, 65544, 65543, 655360, 65544, 262152, 655360, 65544, 458755, 524288, 65542, 65538, 524288, 65542, 65547, 524288, 65542, 393230, 524288, 65542, 720904, 524288, 65542, 1638401, 524288, 65542, 1376260, 524288, 65542, 1114119, 524288, 65542, 1507336, 524288, 65542, 1572884, 524288, 65542, 1179668, 524288, 65542, 1245185, 524288, 65540, 1245188, 524288, 65540, 1048586, 524288, 65540, 1114128, 524288, 65540, 1310738, 524288, 65540, 851986, 524288, 65540, 851977, 524288, 65540, 655376, 524288, 65540, 524288, 524288, 65540, 393223, 524288, 65540, 196612, 524288, 65540, 458752, 524288, 65539, 327687, 524288, 65539, 131076, 524288, 65539, 589840, 524288, 65539, 786441, 524288, 65539, 983050, 524288, 65539, 786450, 524288, 65539, 1048592, 524288, 65539, 1179652, 524288, 65539, 1245202, 524288, 65539, 1245195, 524288, 131073, 720899, 524288, 131073, 655370, 524288, 131073, 196616, 524288, 131073, 131086, 524288, 131073, 131092, 524288, 131073, 131080, 524288, 196608, 65550, 524288, 196608, 65556, 524288, 196608, 589834, 524288, 196608, 655363, 524288, 196608, 1179659, 524288, 196608)
+layer_1/name = "Layer1"
+layer_1/z_index = -1
+layer_2/name = "Layer2"
+layer_2/z_index = 1
 
 [node name="ExitIndicator" parent="." instance=ExtResource("6_fcfvj")]
 visible = false
@@ -76,7 +78,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Key2" parent="." instance=ExtResource("8_15mv3")]
-position = Vector2(21, 682)
+position = Vector2(643, 776)
 script = ExtResource("9_e3sih")

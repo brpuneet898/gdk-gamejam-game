@@ -112,8 +112,8 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_h6syq"]
-offsets = PackedFloat32Array(0, 0.805195)
-colors = PackedColorArray(1, 0.176095, 0.107126, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.471861)
+colors = PackedColorArray(0.784652, 0.465144, 0.108311, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v2miy"]
 gradient = SubResource("Gradient_h6syq")
@@ -147,5 +147,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-21, -35)
+position = Vector2(-20, -31)
+scale = Vector2(6.28125, 5.22749)
 texture = SubResource("GradientTexture2D_v2miy")

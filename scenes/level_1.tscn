@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://da1os3c1v1ovf"]
+[gd_scene load_steps=15 format=3 uid="uid://da1os3c1v1ovf"]
 
 [ext_resource type="Script" uid="uid://42on2jrhxdn0" path="res://scripts/main/event_handler.gd" id="1_4nkto"]
 [ext_resource type="PackedScene" uid="uid://b8ca0jwbacu7e" path="res://assets/tilemap/ground.tscn" id="1_rus8k"]
@@ -10,6 +10,9 @@
 [ext_resource type="Shader" uid="uid://co2fjqq8dsyam" path="res://shaders/level_1.gdshader" id="7_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://b8g3m6kfvu65w" path="res://assets/Items/key.tscn" id="8_15mv3"]
 [ext_resource type="Script" uid="uid://bucaqbjyea7f5" path="res://scripts/Items/key.gd" id="9_e3sih"]
+[ext_resource type="AudioStream" uid="uid://b0rhlooqvilsj" path="res://Music/gameplay.mp3" id="11_7gny6"]
+[ext_resource type="AudioStream" uid="uid://4h2dorw0imuu" path="res://Music/chase.mp3" id="12_2aecg"]
+[ext_resource type="AudioStream" uid="uid://b7krr5leed8us" path="res://Music/gameover.mp3" id="13_6dial"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_15mv3"]
 shader = ExtResource("7_pa8r4")
@@ -83,3 +86,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Key2" parent="." instance=ExtResource("8_15mv3")]
 position = Vector2(643, 776)
 script = ExtResource("9_e3sih")
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7gny6")
+autoplay = true
+parameters/looping = true
+
+[node name="ChaseMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_2aecg")
+parameters/looping = false
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_6dial")
+parameters/looping = false

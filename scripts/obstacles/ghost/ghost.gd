@@ -12,13 +12,12 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 
 var original_tiles := {}
-
 var move_direction := Vector2.ZERO
 var move_timer := 0.0
+var was_chasing := false  # Track previous chase state
 
 func _ready():
 	pick_random_direction()
-	# Store all original tiles to restore visibility later
 	for cell in tilemap.get_used_cells(0):
 		var data = {
 			"source_id": tilemap.get_cell_source_id(0, cell),
@@ -34,21 +33,33 @@ func _physics_process(delta):
 		return
 
 	var distance_to_player = global_position.distance_to(player.global_position)
+	var is_chasing = distance_to_player <= chase_distance
 
-	if distance_to_player <= chase_distance:
+	if is_chasing:
 		move_direction = global_position.direction_to(player.global_position)
 		velocity = move_direction * chase_speed
-	elif distance_to_player <= activation_distance:
-		move_timer -= delta
-		if move_timer <= 0 or velocity.length() > speed:
-			pick_random_direction()
-		velocity = move_direction * speed
-		var next_position = global_position + velocity * delta
-		if not get_viewport_rect().has_point(next_position):
-			pick_random_direction()
-			velocity = move_direction * speed
 	else:
-		velocity = Vector2.ZERO
+		if distance_to_player <= activation_distance:
+			move_timer -= delta
+			if move_timer <= 0 or velocity.length() > speed:
+				pick_random_direction()
+			velocity = move_direction * speed
+			var next_position = global_position + velocity * delta
+			if not get_viewport_rect().has_point(next_position):
+				pick_random_direction()
+				velocity = move_direction * speed
+		else:
+			velocity = Vector2.ZERO
+
+	# Music control logic — only call when state changes
+	var playground = get_tree().root.get_node("Playground")
+	if playground:
+		if is_chasing and not was_chasing:
+			playground.play_chase_music()
+		elif not is_chasing and was_chasing and distance_to_player > activation_distance:
+			playground.play_gameplay_music()
+
+	was_chasing = is_chasing
 
 	move_and_slide()
 	_update_tiles_visibility()
@@ -66,7 +77,9 @@ func pick_random_direction():
 func _on_kill_detector_body_entered(body):
 	if body is Player:
 		print("Player touched ghost")
-		get_tree().root.get_node("Playground").show_game_over()
+		var handler = get_tree().root.get_node("Playground")
+		handler.play_gameover_music()
+		handler.show_game_over()
 
 func _update_tiles_visibility():
 	var effect_shape = effect_area.get_node("Effect Radius").shape
@@ -74,7 +87,6 @@ func _update_tiles_visibility():
 	var tile_size = tilemap.tile_set.tile_size
 
 	for cell in original_tiles.keys():
-		# Convert Vector2i to Vector2
 		var cell_vec2 = Vector2(cell.x, cell.y)
 		var world_pos = tilemap.map_to_local(Vector2(cell.x, cell.y)) + Vector2(tile_size.x, tile_size.y) / 2
 		var in_radius = false
